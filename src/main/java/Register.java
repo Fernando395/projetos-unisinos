@@ -18,25 +18,26 @@ public class Register {
 
     public void enterTheData() {
         System.out.print("Nome:");
-        name = input.next();
+        name = input.nextLine();
         System.out.print("Idade:");
         age = input.nextInt();
+        input.nextLine();
         System.out.print("Sexo:");
-        sex = input.next();
+        sex = input.nextLine();
         System.out.print("RG:");
-        rg = input.next();
+        rg = input.nextLine();
         System.out.print("CPF:");
-        cpf = input.next();
+        cpf = input.nextLine();
         System.out.print("Cidade:");
-        city = input.next();
+        city = input.nextLine();
         System.out.print("Estado:");
-        state = input.next();
+        state = input.nextLine();
         System.out.print("CEP:");
-        cep = input.next();
+        cep = input.nextLine();
         System.out.print("Renda mensal:");
-        monthlyIncome = input.next();
+        monthlyIncome = input.nextLine();
         System.out.print("Email:");
-        email = input.next();
+        email = input.nextLine();
     }
 
     public void accountChoice() {
