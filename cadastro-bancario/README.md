@@ -10,8 +10,3 @@ Esse projeto é uma simulação básica de um cadastro bancario.
   ```
   ./gradlew bootRun
   ```
-
-- Para executar os testes.
-  ```
-  ./gradlew test
-  ```
