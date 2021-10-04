@@ -1,34 +1,52 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class TesteFun4Study {
+
+    private ArrayList<Cidade> cidades = new ArrayList<>();
+    private ArrayList<Estudante> estudantes = new ArrayList<>();
+
 
     public static void main(String[] args) {
 
-        Cidade cidade1 = new Cidade(0,"","");
-        cidade1.CadastraNovaCidade();
+        Scanner input = new Scanner(System.in);
 
-        Cidade cidade2 = new Cidade(0,"","");
-        cidade2.CadastraNovaCidade();
+        TesteFun4Study testeFun4Study = new TesteFun4Study();
 
-        Estudante estudante1 = new Estudante(0,"","","","",cidade1);
-        estudante1.CadastraNovoEstudante();
-        estudante1.atualizaSenha();
+        System.out.println("Adicione uma nova Cidade e no mínimo 4 Estudantes.");
+        int escolha1 = 1;
+        int contador1 = 0;
+        while (escolha1 == 1) {
+            Cidade cidade = new Cidade(0, "", "");
+            cidade.CadastraNovaCidade();
+            cidade.exibeDados();
 
-        Estudante estudante2 = new Estudante(0,"","","","",cidade1);
-        estudante2.CadastraNovoEstudante();
-        estudante2.atualizaSenha();
+            testeFun4Study.cidades.add(contador1, cidade);
+            contador1++;
 
-        Estudante estudante3 = new Estudante(0,"","","","",cidade2);
-        estudante3.CadastraNovoEstudante();
-        estudante3.atualizaSenha();
+            int escolha2 = 1;
+            int contador2 = 0;
+            while (escolha2 == 1) {
+                Estudante estudante = new Estudante(0, "", "", "", "", testeFun4Study.cidades.get(contador1-1));
+                estudante.CadastraNovoEstudante();
+                estudante.atualizaCadastro();
+                estudante.atualizaSenha();
 
-        Estudante estudante4 = new Estudante(0,"","","","",cidade2);
-        estudante4.CadastraNovoEstudante();
-        estudante4.atualizaSenha();
+                testeFun4Study.estudantes.add(contador2, estudante);
+                contador2++;
 
-        cidade1.exibeDados();
-        cidade2.exibeDados();
-        estudante1.exibeDados();
-        estudante2.exibeDados();
-        estudante3.exibeDados();
-        estudante4.exibeDados();
+                System.out.println("Digite 1 para adicionar um novo Estudante ou 0 Para parar de adicionar Estudantes.");
+                escolha2 = input.nextInt();
+                if (contador2 < 4 && escolha2 == 0){
+                    System.out.println("ERRO, o numero mínimo de estudantes cadastrados é 4");
+                    escolha2 = 1;
+                }
+                if (contador2 >= 4 && escolha2 == 0){
+                }
+
+            }
+            System.out.println("Digite 1 para adicionar uma nova Cidade e no mínimo mais 4 Estudantes ou 0 Para parar de adicionar Cidades e Estudantes.");
+            escolha1 = input.nextInt();
+        }
     }
 }

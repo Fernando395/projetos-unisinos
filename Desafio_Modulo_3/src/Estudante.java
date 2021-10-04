@@ -20,7 +20,7 @@ public class Estudante {
         cidade.adicionaNovoEstudante();
     }
 
-    public void CadastraNovoEstudante(){
+    public void CadastraNovoEstudante() {
         System.out.println("-------------------------------------------------------------------");
         System.out.println("Cadastre o Estudante");
         System.out.print("Digite seu código: ");
@@ -100,9 +100,9 @@ public class Estudante {
         System.out.println("-------------------------------------------------------------------");
         System.out.println("Atualização de senha necessária");
         System.out.print("Digite a Senha atual: ");
+        teclado.nextLine();
         String senhaAtual = teclado.nextLine();
         while (!getSenha().equals(senhaAtual)) {
-            System.out.println("-------------------------------------------------------------------");
             System.out.println("Senha Atual Invalida");
             System.out.print("Digite a Senha atual: ");
             senhaAtual = teclado.nextLine();
@@ -126,6 +126,51 @@ public class Estudante {
 
         System.out.println("Senha Atualizada Com Sucesso");
         setSenha(novaSenha);
+    }
+
+    public void atualizaCadastro() {
+        System.out.println("-------------------------------------------------------------------");
+        System.out.println("Se você deseja corrigir algum dado do estudante cadastrado digite 1  mais se tudo estiver certo digite 0");
+        int escolha = teclado.nextInt();
+        while (escolha == 1) {
+            System.out.println("-------------------------------------------------------------------");
+            exibeDados();
+            System.out.print("Digite o nome do atributo que voce quer mudar(sem a acentuação): ");
+            teclado.nextLine();
+            String atrEscolhido = teclado.nextLine();
+            if (atrEscolhido.equals("codigo")) {
+                System.out.println("Digite o novo código");
+                setCodigo(teclado.nextInt());
+                exibeDados();
+            }
+            if (atrEscolhido.equals("nome")) {
+                System.out.println("Digite o novo nome");
+                setNome(teclado.next());
+                exibeDados();
+            }
+            if (atrEscolhido.equals("data de nascimento")) {
+                System.out.println("Digite a nova data de nascimento");
+                setDataDeNascimento(teclado.next());
+                exibeDados();
+            }
+            if (atrEscolhido.equals("email")) {
+                System.out.println("Digite o novo email");
+                setEmail(teclado.next());
+                exibeDados();
+            }
+            if (atrEscolhido.equals("senha")) {
+                System.out.println("Digite a nova senha");
+                setSenha(teclado.next());
+                exibeDados();
+            }
+            if (atrEscolhido.equals("cidade")) {
+                cidade.CadastraNovaCidade();
+                setCidade(cidade);
+                exibeDados();
+            }
+            System.out.println("Se você deseja corrigir algum dado do estudante cadastrado digite 1 se tudo estiver certo digite 0");
+            escolha = teclado.nextInt();
+        }
     }
 }
 
